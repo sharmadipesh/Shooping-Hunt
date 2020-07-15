@@ -29,7 +29,7 @@ function App() {
           <Router>
               <Route exact component={Login} path={Routes.Landingpage}/>
               <Route exact component={Login} path={Routes.Login}/>
-              <Route exact component={Signup} path={Routes.Signup}/>
+              <Route  component={Signup} path={Routes.Signup}/>
           </Router>
         </Provider>
     </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Route,Switch} from 'react-router-dom';
 import {Routes} from 'config/Routes';
-// import Header from 'views/Header';
+import Header from 'views/components/Header';
 import {reduxSetup} from 'redux/actions/Auth';
 import {connect} from 'react-redux';
 
@@ -16,7 +16,7 @@ class MainLayout extends Component {
         
         return (
             <div>
-                {/* <Header {...this.props}/> */}
+                <Header {...this.props}/>
                 {/* <Switch>
                     <Route exact component={()=><Home tableData={this.props.tableData}/>} path={Routes.Home}/>
                 </Switch> */}

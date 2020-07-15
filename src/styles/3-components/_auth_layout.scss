@@ -6,9 +6,7 @@
         width: 50%;
         background-color: #f4f5f7;
         height: 100vh;
-        .auth-img{
-            height: 50vh;
-        }
+       
     }
 
     .part-two{
@@ -16,11 +14,38 @@
         padding: 0px 140px;
     }
 
-    .company-name{
-        color: #665DF5;
-        font-family:$lato-semibold ;
-    }
+   
     .register-now-text{
         font-family:$lato-semibold ;
+    }
+}
+.auth-img{
+    height: 50vh;
+}
+
+.company-name{
+    color: #665DF5;
+    font-family:$lato-semibold ;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.signup-form-container{
+    background-color: #f4f5f7;
+    padding-top: 75px;
+    .ant-card {
+        border-radius: 3px;
+        box-shadow: 0 5px 8px 0 rgba(0,0,0,0.1);
+        .ant-card-body{
+            padding-top: 30px;
+        }   
+    }
+    .signup-form{
+        .part-one{
+            width: 50%;
+        }
+        .part-two{
+            width: 50%;
+        }
     }
 }
