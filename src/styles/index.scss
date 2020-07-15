@@ -1,19 +1,16 @@
 @import '~antd/dist/antd.css';
 // 1- tools
+@import './1-tools/bootstrap/bootstrap';
 @import './1-tools/fonts';
 @import './1-tools/vars';
 
 // 2- basics
 @import './2-basics/app';
-@import './2-basics/flexbox';
 
 // 3- components
 @import './3-components/header';
-@import './3-components/sidebar';
-@import './3-components/tab';
-@import './3-components/card';
+@import './3-components/auth_layout';
 @import './3-components/form';
 
 // 4-pages
 @import './4-pages/common';
-@import './4-pages/tv-series';

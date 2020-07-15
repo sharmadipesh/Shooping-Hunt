@@ -1,5 +1,5 @@
 @each $size
-	in (3 ,5 ,7 ,10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60,80,100,120)
+	in (10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60,80,120)
 {
 	.m-#{$size} {
 		margin: #{$size}px;
@@ -49,22 +49,6 @@
 	}
 }
 
-@each $size in (10,11,12,13,14,16)
-{
-	.font-size-#{$size} {
-		font-size: #{$size}px;
-	}
-}
-
 .clickable{
 	cursor: pointer;
-}
-
-.drop-container{
-	position: relative;
-	.sorting-container{
-		position: absolute;
-		right: 0;
-		top: -57px;
-	}
 }

@@ -8,6 +8,8 @@ import reduxThunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from 'redux/reducer'
+import Login from 'views/Login';
+import Signup from 'views/Signup';
 
 
 const createStoreWithMiddleware = applyMiddleware(
@@ -25,7 +27,9 @@ function App() {
     <div className="App">
       <Provider store={store}>
           <Router>
-              <Route exact component={MainLayout} path={Routes.Landingpage}/>
+              <Route exact component={Login} path={Routes.Landingpage}/>
+              <Route exact component={Login} path={Routes.Login}/>
+              <Route exact component={Signup} path={Routes.Signup}/>
           </Router>
         </Provider>
     </div>
