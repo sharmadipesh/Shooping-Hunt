@@ -1,0 +1,42 @@
+.header-style-container{
+    border-bottom: 1px solid rgba(0,0,0,0.2); 
+    margin-bottom: 15px;
+
+    .icon-size-22{
+        height: 22px;
+        width: 22px;
+    }
+
+    .title-style{
+        letter-spacing: 1.1px;
+        font-size: 28px;
+        .this{
+            font-family:$lato-bold ;
+        }
+    }
+
+    .icon-clock{
+        height: 15px;
+        width: 15px;
+    }
+
+    .date-time-container{
+        font-size: 16px;
+        letter-spacing: 1.2px;
+        font-family: $lato-light!important;
+        .time-format-style{
+            font-weight: 600;
+        }
+    }
+
+    .strait-line{
+        width: 1px;
+        height:40px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .module-container{
+        position: relative;
+        top: -10px;
+    }
+}
