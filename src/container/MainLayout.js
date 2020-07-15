@@ -4,6 +4,7 @@ import {Routes} from 'config/Routes';
 import Header from 'views/components/Header';
 import {reduxSetup} from 'redux/actions/Auth';
 import {connect} from 'react-redux';
+import Dashboard from 'views/Dashboard';
 
 
 class MainLayout extends Component {
@@ -17,10 +18,11 @@ class MainLayout extends Component {
         return (
             <div>
                 <Header {...this.props}/>
-                {/* <Switch>
-                    <Route exact component={()=><Home tableData={this.props.tableData}/>} path={Routes.Home}/>
-                </Switch> */}
-                {/* Main Layout */}
+                <div className="mt-75">
+                    <Switch>
+                        <Route exact component={()=><Dashboard {...this.props}/>} path={Routes.Dashboard}/>
+                    </Switch>
+                </div>
             </div>
         );
     }

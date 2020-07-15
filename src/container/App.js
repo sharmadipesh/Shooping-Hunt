@@ -30,6 +30,7 @@ function App() {
               <Route exact component={Login} path={Routes.Landingpage}/>
               <Route exact component={Login} path={Routes.Login}/>
               <Route  component={Signup} path={Routes.Signup}/>
+              <Route  component={MainLayout} path={Routes.Dashboard}/>
           </Router>
         </Provider>
     </div>
