@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import idx from "idx";
 
 class Header extends Component {
     render() {
@@ -10,9 +12,11 @@ class Header extends Component {
                 </div>
                 <div className="shooping-cart">
                     <img alt="shopping-cart" src="img/supermarket.svg"/>
+                    {idx(this.props.productCart,_=>_.length)?
                     <div className="alert-container">
-                        1
+                        {idx(this.props.productCart,_=>_.length)}
                     </div>
+                    :null}
                 </div>
             </div>
 
@@ -20,4 +24,10 @@ class Header extends Component {
     }
 }
 
-export default Header;
+// export default Header;
+function mapStateToProps(state){
+    return{
+        productCart:state.ProductOperation.productCart
+    }
+}
+export default connect(mapStateToProps,{})(Header);

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Card,Button,Modal,Form, Input, InputNumber } from 'antd';
+import { Card,Button,Modal,Form, message, InputNumber } from 'antd';
 import {products} from 'dummy_data/dummy';
 import idx from 'idx'; 
+import {connect} from 'react-redux';
+import {productAddToCart} from 'redux/actions/ProductOperation';
 // import addToCart from "./AddtoCard";
 
 class Dashboard extends Component {
@@ -12,11 +14,23 @@ class Dashboard extends Component {
     };
 
     addToCartHandler(isAddCartOpen,productInformation) {
-        console.log("dd")
         this.setState({ isAddCartOpen,productInformation });
     }
 
+    onFinish = (values,p) =>{
+        let data = {
+            ...values,
+            ...p
+        }
+        let finalData = [data,...this.props.productCart];
+        this.props.productAddToCart(finalData,()=>{
+            message.success(`${p.Name} is added to your cart.`);
+            this.addToCartHandler(false,{});
+        })
+    }
+
     render() {
+        console.log("11111111 ",this.props.productCart)
         return (
             <div>
                 {/* Dashboard */}
@@ -71,8 +85,11 @@ class Dashboard extends Component {
                             <Form  
                                 name="nest-messages" 
                                 className="mt-20"
-                                // onFinish={onFinish} 
+                                onFinish={(v)=>this.onFinish(v,this.state.productInformation)} 
                                 // validateMessages={validateMessages}
+                                initialValues={{
+                                    qty: "",
+                                }}
                             >
     
                                 <Form.Item
@@ -102,4 +119,13 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+// export default Dashboard;
+function mapStateToProps(state){
+    return{
+        productCart:state.ProductOperation.productCart
+    }
+}
+
+export default connect(mapStateToProps,{
+    productAddToCart,
+})(Dashboard);
