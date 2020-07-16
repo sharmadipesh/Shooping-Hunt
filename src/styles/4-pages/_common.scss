@@ -52,3 +52,26 @@
 .clickable{
 	cursor: pointer;
 }
+
+
+
+.product-information{
+	position: relative;
+	.ant-card-cover{
+		img{	height: 250px;
+			border-left: 1px solid #f0f0f0;
+			border-right:1px solid #f0f0f0 ;
+		}
+	}
+	.product-name{
+		font-size: 18px;
+		font-weight: 600;
+	}
+	.sold-out{
+		width: 60px;
+		position: absolute;
+		z-index: 99999;
+		top: -15px;
+	}
+	
+}
