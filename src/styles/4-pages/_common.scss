@@ -70,8 +70,14 @@
 	.sold-out{
 		width: 60px;
 		position: absolute;
-		z-index: 99999;
+		z-index: 9;
 		top: -15px;
 	}
+	
+}
+
+.product-modal-information{
+	font-size:18px;
+	font-family: $lato-semibold;
 	
 }
