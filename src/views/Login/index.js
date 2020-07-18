@@ -1,8 +1,28 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button, message } from 'antd';
 import {Routes} from 'config/Routes';
+import {connect} from 'react-redux';
+import {loginHandler} from 'redux/actions/Auth';
 
 class Login extends Component {
+
+    onFinish = (value) => {
+        let data = {
+            user:{
+                email:value.email,
+                password:value.password
+            },
+            device_detail:{
+                device_type: 'web',
+                player_id: ""
+            },
+        }
+        this.props.loginHandler(data,(r)=>{
+            message.success(r.message);
+            this.props.history.push(Routes.Dashboard);
+        });
+    }
+
     render() {
         return (
             <div className="auth-layout-container d-flex">
@@ -21,18 +41,22 @@ class Login extends Component {
                         remember: true,
                         }}
                         colon={false}
-                        //   onFinish={onFinish}
+                            onFinish={this.onFinish}
                         //   onFinishFailed={onFinishFailed}
                         layout={"vertical"}
                     >
                         <Form.Item
-                            label="Username"
-                            name="username"
+                            name="email"
+                            label="E-mail"
                             rules={[
-                            {
-                                required: true,
-                                message: 'Please input your username!',
-                            },
+                                {
+                                    type: 'email',
+                                    message: 'The input is not valid E-mail!',
+                                },
+                                {
+                                    required: true,
+                                    message: 'Please input your E-mail!',
+                                },
                             ]}
                         >
                             <Input />
@@ -68,4 +92,12 @@ class Login extends Component {
     }
 }
 
-export default Login;
+// export default Login;
+function mapStateToProps(state){
+    return{
+    }
+}
+
+export default connect(mapStateToProps,{
+    loginHandler
+})(Login);

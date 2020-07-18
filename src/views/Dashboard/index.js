@@ -91,7 +91,6 @@ class Dashboard extends Component {
                                     qty: "",
                                 }}
                             >
-    
                                 <Form.Item
                                     name="qty"
                                     label="Add Qty"

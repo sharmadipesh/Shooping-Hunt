@@ -1,8 +1,56 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, Select,Card } from 'antd';
+import { Form, Input, Button, Select,Card,message } from 'antd';
 import Header from 'views/components/Header';
+import {connect} from 'react-redux';
+import {signUpHandler} from 'redux/actions/Auth';
+
 
 class Signup extends Component {
+
+    onFinish = (value) =>{
+        let data={
+            user:{
+                first_name:value.first_name,
+                last_name:value.last_name,
+                gender:value.gender,
+                email:value.email,
+                phone:value.phone,
+                password:value.password,
+            },
+            device_detail:{
+                device_type: 'web',
+                player_id: ""
+            },
+            address:{
+                line1:value.address,
+                line2:value.address_2,
+                pincode:value.pincode,
+                town:value.town
+            }
+        }
+        this.props.signUpHandler(data,(r)=>{
+            if(r.message){
+                message.success(r.message);
+                this.props.history.push("/");
+            }
+        });
+    }
+
+    // getDeviceType = () => {
+    //     const ua = navigator.userAgent;
+    //     if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+    //       return "tablet";
+    //     }
+    //     if (
+    //       /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+    //         ua
+    //       )
+    //     ) {
+    //       return "mobile";
+    //     }
+    //     return "desktop";
+    //   };
+
     render() {
         return (
             <div className="signup-form-container">
@@ -17,7 +65,7 @@ class Signup extends Component {
                                 
                                     }}
                                     colon={false}
-                                    //   onFinish={onFinish}
+                                        onFinish={this.onFinish}
                                     //   onFinishFailed={onFinishFailed}
                                     layout={"vertical"}
                                 >
@@ -70,7 +118,33 @@ class Signup extends Component {
                                     >
                                         <Input.Password />
                                     </Form.Item>
-
+                                    <Form.Item 
+                                    label="Phone" name="phone"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Please input your Phone',
+                                            max:13,
+                                            min:13
+                                        },
+                                        ]}
+                                    >
+                                        <Input />
+                                    </Form.Item>
+                                    <Form.Item 
+                                        label="Pincode" 
+                                        name="pincode"
+                                        rules={[
+                                        {
+                                            required: true,
+                                            message: 'Please input your Pincode',
+                                            max:6,
+                                            min:6
+                                        },
+                                        ]}
+                                    >
+                                        <Input />
+                                    </Form.Item>
                                     <Form.Item label="Gender" name="gender" rules={[
                                         {
                                             required: true,
@@ -82,7 +156,6 @@ class Signup extends Component {
                                             <Select.Option value="female">Female</Select.Option>
                                         </Select>
                                     </Form.Item>
-
                                     <Form.Item label="Address (Line 1)" name="address"
                                     rules={[
                                         {
@@ -93,12 +166,20 @@ class Signup extends Component {
                                     >
                                         <Input />
                                     </Form.Item>
-
+                                    <Form.Item label="Town" name="town"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Please input your address',
+                                        },
+                                        ]}
+                                    >
+                                        <Input />
+                                    </Form.Item>
                                     <Form.Item label="Address (Line 2)" name="address_2"
                                     >
                                         <Input />
                                     </Form.Item>
-
                                     <Form.Item>
                                         <Button type="primary" htmlType="submit" block className="mt-10">
                                             Signup
@@ -117,4 +198,12 @@ class Signup extends Component {
     }
 }
 
-export default Signup;
+// export default Signup;
+function mapStateToProps(state){
+    return{
+    }
+}
+
+export default connect(mapStateToProps,{
+    signUpHandler
+})(Signup);

@@ -1,2 +1,5 @@
 export const REDUX_SETUP = 'REDUX_SETUP';
+export const TOKEN = 'TOKEN';
 export const ADD_PRODUCT_IN_CART = 'ADD_PRODUCT_IN_CART';
+export const USER_REGISTRATION = 'USER_REGISTRATION';
+
