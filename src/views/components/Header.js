@@ -17,12 +17,12 @@ class Header extends Component {
         return (
             <div className="header-style-container d-flex align-items-center justify-content-between">
                 <div className="d-flex align-items-center">
-                        <img alt="login" src="img/shop.svg" height="30px"/>
+                        <img alt="login" src="/img/shop.svg" height="30px"/>
                         <div className="company-name">ShoppingHunt</div>
                 </div>
                 <div className="d-flex align-items-center">
-                    <div className="shooping-cart mr-10">
-                        <img alt="shopping-cart" src="img/supermarket.svg"/>
+                    <div className="shooping-cart mr-10" onClick={()=>this.props.history.push("/shooping/cart")}>
+                        <img alt="shopping-cart" src="/img/supermarket.svg"/>
                         {idx(this.props.productCart,_=>_.length)?
                         <div className="alert-container">
                             {idx(this.props.productCart,_=>_.length)}
@@ -30,7 +30,7 @@ class Header extends Component {
                         :null}
                     </div>
                     <div className="shooping-cart" onClick={this.logoutOperation}>
-                        <img alt="logout-icon" src="img/logout.svg"/>
+                        <img alt="logout-icon" src="/img/logout.svg"/>
                     </div>
                 </div>
             </div>

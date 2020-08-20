@@ -5,6 +5,7 @@ import Header from 'views/components/Header';
 import {reduxSetup} from 'redux/actions/Auth';
 import {connect} from 'react-redux';
 import Dashboard from 'views/Dashboard';
+import Cart from 'views/Cart';
 
 
 class MainLayout extends Component {
@@ -20,7 +21,8 @@ class MainLayout extends Component {
                 <Header {...this.props}/>
                 <div className="mt-75">
                     <Switch>
-                        <Route exact component={()=><Dashboard {...this.props}/>} path={Routes.Dashboard}/>
+                        <Route exact component={()=><Dashboard {...this.props}/>} path={Routes.MainLayout}/>
+                        <Route exact component={Cart} path={Routes.Cart}/>
                     </Switch>
                 </div>
             </div>

@@ -1,8 +1,10 @@
 const Routes = {
     Signup:'/signup',
     Login:'/Login',
-    Dashboard:'/dashboard',
-    Landingpage:'/'
+    MainLayout:'/shooping',
+    Dashboard:'/shopping/dashboard',
+    Landingpage:'/',
+    Cart:'/shooping/cart'
 }
 
 export {Routes};
